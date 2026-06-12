@@ -1,0 +1,4 @@
+{% assign label = include.label | default: site.data.ctas.direct %}
+<a class="btn btn-primary btn-sm download-btn"
+  href="{{ include.href | relative_url }}"
+  data-filename="{{ include.filename }}">{{ label }}</a>

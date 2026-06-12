@@ -1,10 +1,10 @@
 ---
-layout: doc
+layout: skill
 title: Security Audit Skill
 description: Die vollständige Skill-Definition für Security-Audit.
 eyebrow: Download
 permalink: /downloads/security-audit.html
-skill_path: security-audit
+download_id: security-audit
 ---
 
 <article class="prose">
@@ -75,28 +75,3 @@ skill_path: security-audit
   <h2>Lizenz</h2>
   <p><a href="../LICENSE">MIT</a></p>
 </article>
-
-<section class="skill-footer section">
-  {% include skill-cta.html %}
-
-  <div class="section-head">
-    <h2>SKILL.md Vorschau</h2>
-  </div>
-  <div class="preview-wrapper">
-    <div class="preview-toolbar">
-      <span class="preview-title">SKILL.md</span>
-      <button type="button" class="copy-btn" onclick="copyContent('security-content', this)">Copy</button>
-    </div>
-    <div class="preview-content prose" id="security-content"></div>
-  </div>
-</section>
-
-<script>document.addEventListener('DOMContentLoaded', () => {
-  fetch('https://raw.githubusercontent.com/Enterprise-AI-Circle/agent-skills/main/agent-skills/security-audit/SKILL.md')
-    .then(r => r.text())
-    .then(t => {
-      // Strip YAML frontmatter (--- ... ---) before rendering
-      const body = t.replace(/^---\n[\s\S]*?\n---\n?/, '');
-      document.getElementById('security-content').innerHTML = marked.parse(body);
-    });
-});</script>

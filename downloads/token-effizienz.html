@@ -1,30 +1,8 @@
 ---
-layout: doc
+layout: download-preview
 title: Token-Effizienz Checkliste
 description: 5 Quick Wins für Token-Effizienz im Vibe Coding.
 eyebrow: Download
 permalink: /downloads/token-effizienz.html
-skill_path: token-effizienz
+download_id: token-effizienz
 ---
-
-<div class="preview-wrapper">
-  <div class="preview-toolbar">
-    <span class="preview-title">token-effizienz-checkliste.md</span>
-    <button type="button" class="copy-btn" onclick="copyContent('token-display', this)">Copy</button>
-  </div>
-  <div class="preview-content prose" id="token-display"></div>
-</div>
-
-<div class="download-actions">
-  <a class="btn btn-primary btn-sm download-btn" href="{{ '/assets/downloads/token-effizienz-checkliste.md' | relative_url }}" data-filename="token-effizienz-checkliste.md">Herunterladen</a>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('{{ "/assets/downloads/token-effizienz-checkliste.md" | relative_url }}')
-    .then(r => r.text())
-    .then(t => {
-      document.getElementById('token-display').innerHTML = marked.parse(t);
-    });
-});
-</script>

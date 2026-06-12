@@ -6,8 +6,7 @@ eyebrow: About
 permalink: /docs/README.html
 ---
 
-<div class="prose" hidden aria-hidden="true">
-<textarea id="readme-content" style="display:none;"># Enterprise AI Circle — Agent Skills
+<textarea id="readme-content" class="visually-hidden" aria-hidden="true"># Enterprise AI Circle — Agent Skills
 
 Open-source skills for AI coding agents, published by the [Enterprise AI Circle](https://www.xalt.de/) and curated by [XALT Business Consulting](https://www.xalt.de/).
 
@@ -85,22 +84,10 @@ bundle exec jekyll serve
 
 Die Site baut und deployt automatisch auf GitHub Pages bei jedem Push auf `main`, über den Workflow in `.github/workflows/pages.yml`.
 </textarea>
-</div>
 
-<div class="preview-wrapper">
-  <div class="preview-toolbar">
-    <span class="preview-title">README.md</span>
-    <button type="button" class="copy-btn" onclick="copyContent('readme-content', this)">Copy</button>
-  </div>
-  <pre class="preview-content"><code id="readme-display"></code></pre>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const textarea = document.getElementById('readme-content');
-  const display = document.getElementById('readme-display');
-  if (textarea && display) {
-    display.textContent = textarea.value;
-  }
-});
-</script>
+{% include preview-panel.html
+  title="README.md"
+  source_id="readme-content"
+  copy_id="readme-content"
+  id="readme-display"
+  mode="text" %}

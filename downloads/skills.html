@@ -12,12 +12,16 @@ permalink: /downloads/skills.html
   <h2>Verfügbare Skills</h2>
 
   <div class="card-grid card-grid-1">
-    <a class="card card-link" href="{{ '/downloads/security-audit.html' | relative_url }}">
-      <span class="card-kicker">Security</span>
-      <h3>Security Audit Skill</h3>
-      <p>Prüft Codebases auf Vibe-Coding-Schwachstellen, geleakte Secrets, Dependency-CVEs und mismatches zwischen Privacy-Versprechen und Code.</p>
-      <span class="card-more">Zum Skill →</span>
-    </a>
+    {% for item in site.data.downloads.items %}
+      {% if item.kind == 'skill' %}
+        <a class="card card-link" href="{{ item.page | relative_url }}">
+          <span class="card-kicker">{{ item.kicker }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.descriptions.home_skills }}</p>
+          <span class="card-more">{{ item.link_label }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
   </div>
 
   <h2>Wie Skills funktionieren</h2>

@@ -1,0 +1,22 @@
+{% assign panel_id = include.id | default: 'preview-content' %}
+{% assign copy_id = include.copy_id | default: panel_id %}
+{% if include.src contains 'http' %}
+  {% assign preview_src = include.src %}
+{% else %}
+  {% assign preview_src = include.src | relative_url %}
+{% endif %}
+<div class="preview-wrapper"
+  {% if include.src %}data-preview-src="{{ preview_src }}"{% endif %}
+  {% if include.source_id %}data-preview-source="{{ include.source_id }}"{% endif %}
+  {% if include.strip_frontmatter %}data-preview-strip-frontmatter{% endif %}
+  {% if include.mode == 'text' %}data-preview-mode="text"{% endif %}>
+  <div class="preview-toolbar">
+    <span class="preview-title">{{ include.title }}</span>
+    <button type="button" class="copy-btn" data-copy-target="{{ copy_id }}">Copy</button>
+  </div>
+  {% if include.mode == 'text' %}
+  <pre class="preview-content"><code id="{{ panel_id }}"></code></pre>
+  {% else %}
+  <div class="preview-content prose" id="{{ panel_id }}"></div>
+  {% endif %}
+</div>

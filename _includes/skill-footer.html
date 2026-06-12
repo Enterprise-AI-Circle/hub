@@ -1,0 +1,15 @@
+<section class="skill-footer section">
+  {% include skill-cta.html %}
+
+  {% if include.preview_heading %}
+  <div class="section-head">
+    <h2>{{ include.preview_heading }}</h2>
+  </div>
+  {% endif %}
+
+  {% include preview-panel.html
+    title=include.preview_title
+    src=include.preview_src
+    id=include.preview_id
+    strip_frontmatter=include.strip_frontmatter %}
+</section>

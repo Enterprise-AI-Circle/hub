@@ -1,5 +1,10 @@
+{% assign item = site.data.downloads.items | where: "id", page.download_id | first %}
+{% assign skill_name = page.title | replace: ' Skill', '' | replace: '-Skill', '' | replace: ' ', '-' %}
+{% if item.skill_path %}
+  {% assign skill_path = item.skill_path %}
+{% endif %}
 <div class="skill-prompt">
   <span class="skill-prompt-hint">Copy-paste-Befehl für deinen Agenten</span>
-  <code>Installiere den {{ page.title | replace: ' Skill', '' | replace: '-Skill', '' | replace: ' ', '-' }}-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/{{ page.skill_path }}</code>
-  <button class="copy-btn-inline" onclick="copySkillPrompt()">Copy</button>
+  <code>Installiere den {{ skill_name }}-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/{{ skill_path }}</code>
+  <button type="button" class="copy-btn-inline" data-copy-skill-prompt>Copy</button>
 </div>

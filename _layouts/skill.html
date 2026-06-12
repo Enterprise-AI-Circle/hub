@@ -1,0 +1,11 @@
+---
+layout: doc
+---
+{{ content }}
+{% assign item = site.data.downloads.items | where: "id", page.download_id | first %}
+{% include skill-footer.html
+  preview_heading=item.preview.heading
+  preview_title=item.preview.title
+  preview_src=item.preview.src
+  preview_id=page.preview_id
+  strip_frontmatter=item.preview.strip_frontmatter %}
