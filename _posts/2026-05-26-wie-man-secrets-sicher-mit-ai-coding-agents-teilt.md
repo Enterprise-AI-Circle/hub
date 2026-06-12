@@ -4,8 +4,6 @@ description: Credential Brokering – das Architektur-Pattern, das gerade Standa
 permalink: /blog/wie-man-secrets-sicher-mit-ai-coding-agents-teilt.html
 ---
 
-# Wie man Secrets sicher mit AI Coding Agents teilt
-
 Wenn euer Coding-Agent direkten Zugriff auf eure API-Keys hat, kann eine einzige manipulierte Webseite oder ein einziges bösartiges GitHub-Issue dazu führen, dass alle eure Credentials abfließen. Die Industrie hat verstanden, dass das so nicht haltbar ist. Anthropic, Vercel, Cloudflare, LangChain und [Infisical](https://infisical.com/blog/credential-brokering-for-ai-agents) konvergieren auf das gleiche Pattern: **Credential Brokering**.
 
 Dieser Artikel erklärt das Pattern, warum es entsteht, und was ihr daraus für eure eigene Setup-Entscheidung mitnehmt.
