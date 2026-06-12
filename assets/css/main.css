@@ -153,6 +153,7 @@ a:hover { color: var(--primary-100); }
 }
 .nav-sublabel:hover { background: var(--white); color: var(--primary-100); }
 .nav-sublabel.active {
+  margin: 4px 0;
   background: var(--white);
   color: var(--primary-100);
   font-weight: 600;
@@ -183,6 +184,7 @@ a:hover { color: var(--primary-100); }
 }
 .nav-link:hover { background: var(--white); color: var(--primary-100); }
 .nav-link.active {
+  margin: 4px 0;
   background: var(--white);
   color: var(--primary-100);
   font-weight: 600;
