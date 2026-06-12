@@ -73,7 +73,7 @@ Pre-Commit-Scanning verhindert das Committen neuer Secrets. Es ersetzt nicht:
 
 Den zweiten Punkt deckt der **Security-Audit Skill** ab, der zu diesem Artikel als Download-Paket gehört. Er funktioniert mit OpenClaw und kompatiblen Coding-Agents (Claude Code via SKILL.md-Loader, Cursor via Custom-Instructions). Der Skill prüft euren Codebase auf die typischen Vibe-Coding-Schwachstellen, gibt Befunde nach Severity sortiert aus, und schlägt konkrete Fixes vor.
 
-**Download & Installation:** [Security Audit Skill](**Zur Installation:** [Security-Audit-Skill installieren]({{ '/downloads/security-audit.html' | relative_url }}))
+**Download & Installation:** [Security-Audit-Skill installieren]({{ '/downloads/security-audit.html' | relative_url }})
 
 ## Die Faustregel
 
