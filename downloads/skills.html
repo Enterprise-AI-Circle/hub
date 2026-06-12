@@ -10,16 +10,9 @@ permalink: /downloads/skills.html
   <p>Skills sind wiederverwendbare Anweisungen für AI Coding Agents. Sie definieren Workflows, Best Practices und spezifisches Wissen, das Agents bei wiederkehrenden Aufgaben unterstützen.</p>
 
   <h2>Verfügbare Skills</h2>
+  <p class="muted">Aus <code>marketplace.json</code> im <a href="https://github.com/Enterprise-AI-Circle/agent-skills" target="_blank" rel="noopener">agent-skills</a>-Repo — neue Skills erscheinen hier automatisch.</p>
 
-  <!--
-    Automatisiertes Listing: liest live die marketplace.json aus dem
-    agent-skills-Repo. Neuer Skill dort = erscheint hier automatisch,
-    ohne diese Datei oder den Hub neu zu bauen.
-    data-detail-pages: Skills mit eigener Detailseite hier im Hub.
-  -->
-  <div id="skills-listing"
-       data-detail-base="{{ 'downloads/' | relative_url }}"
-       data-detail-pages="security-audit"></div>
+  {% include skills-listing.html variant='link' %}
 
   <h2>Wie Skills funktionieren</h2>
   <p>Skills leben im GitHub-Repo — die einzige Quelle der Wahrheit. Kein ZIP, keine Kopie, die auseinanderläuft. Agents laden Skills direkt aus dem Repository.</p>
@@ -32,8 +25,6 @@ permalink: /downloads/skills.html
   <p>Gib deinem Agenten den Direkt-Link zum Skill-Ordner. Er lädt die SKILL.md und alle Referenzdateien automatisch.</p>
 
   <blockquote>
-    <p>"Installiere den Security-Audit-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/security-audit"</p>
+    <p>„Installiere den Security-Audit-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/security-audit“</p>
   </blockquote>
 </article>
-
-<script src="{{ '/assets/js/skills-listing.js' | relative_url }}" defer></script>

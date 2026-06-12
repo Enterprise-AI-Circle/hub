@@ -17,19 +17,9 @@ home: true
 <section class="section">
   <div class="section-head">
     <h2>Skills</h2>
-    <p>Jeder Skill ist eine SKILL.md, die jeder compatible AI Coding Agent laden kann. Einfach den Link zu dieser Seite in den Agenten kopieren und sagen: "Installiere den Security-Audit-Skill."</p>
+    <p>Jeder Skill ist eine SKILL.md, die jeder compatible AI Coding Agent laden kann. Einfach den Link zu dieser Seite in den Agenten kopieren und sagen: „Installiere den Security-Audit-Skill.“</p>
   </div>
-  <div class="card-grid card-grid-1">
-    {% for item in site.data.downloads.items %}
-      {% if item.kind == 'skill' %}
-        {% include card-download.html
-          title=item.title_short
-          description=item.descriptions.home_skills
-          href=item.page
-          cta='skill' %}
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% include skills-listing.html variant='download' cta='skill' %}
 </section>
 
 <section class="section">
@@ -66,19 +56,12 @@ home: true
   </div>
   <div class="card-grid card-grid-1">
     {% for item in site.data.downloads.items %}
-      {% if item.kind == 'template' %}
-        {% include card-download.html
-          title=item.title
-          description=item.description
-          href=item.page
-          cta='preview' %}
-      {% elsif item.kind == 'skill' %}
-        {% include card-download.html
-          title=item.title
-          description=item.descriptions.home_downloads
-          href=item.page
-          cta='skill' %}
-      {% endif %}
+      {% include card-download.html
+        title=item.title
+        description=item.description
+        href=item.page
+        cta='preview' %}
     {% endfor %}
   </div>
+  {% include skills-listing.html variant='download' cta='skill' %}
 </section>

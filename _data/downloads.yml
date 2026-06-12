@@ -1,26 +1,8 @@
+# Templates und Checklisten (lokal im Hub-Repo).
+# Skills: Single Source of Truth = marketplace.json im agent-skills-Repo.
 items:
-  - id: security-audit
-    kind: skill
-    title: Security Audit Skill
-    title_short: Security Audit
-    kicker: Security
-    link_label: Zum Skill →
-    descriptions:
-      home_skills: "Prüft Codebases auf Vibe-Coding-Schwachstellen, geleakte Secrets, Dependency-CVEs und mismatches zwischen Privacy-Versprechen und Code."
-      home_downloads: "Die vollständige Skill-Definition. In den Agenten kopieren und loslegen."
-      index: "Als Claude-Code-Plugin oder per Direct-Link — dein Agent zieht ihn direkt aus dem Repo."
-    page: /downloads/security-audit.html
-    skill_path: security-audit
-    preview:
-      src: https://raw.githubusercontent.com/Enterprise-AI-Circle/agent-skills/main/agent-skills/security-audit/SKILL.md
-      title: SKILL.md
-      heading: SKILL.md Vorschau
-      strip_frontmatter: true
-
   - id: token-effizienz
-    kind: template
     title: Token-Effizienz Checkliste
-    title_short: Token-Effizienz Checkliste
     kicker: Effizienz
     link_label: Zur Checkliste →
     description: "5 Quick Wins für Token-Effizienz im Vibe Coding."
@@ -31,9 +13,7 @@ items:
     preview_title: token-effizienz-checkliste.md
 
   - id: personalization
-    kind: template
     title: Personalization Prompt-Templates
-    title_short: Personalization Prompt-Templates
     kicker: Personalisierung
     link_label: Zu den Templates →
     description: "5 fertige Prompt-Templates für Agent-Personalisierung."

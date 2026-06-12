@@ -1,0 +1,10 @@
+# Hub-Detailseiten für Skills aus marketplace.json (agent-skills).
+# marketplace.json = welche Skills existieren und angezeigt werden.
+# Diese Datei = welche Skills eine eigene Seite unter /downloads/ haben.
+detail_pages:
+  - security-audit
+
+defaults:
+  preview_heading: SKILL.md Vorschau
+  preview_title: SKILL.md
+  strip_frontmatter: true

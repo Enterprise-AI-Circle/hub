@@ -14,19 +14,12 @@ permalink: /downloads/
 
 <div class="card-grid card-grid-1">
   {% for item in site.data.downloads.items %}
-    {% if item.kind == 'template' %}
-      {% include card-download.html
-        title=item.title
-        description=item.description
-        href=item.asset
-        cta='direct'
-        download=true %}
-    {% elsif item.kind == 'skill' %}
-      {% include card-download.html
-        title=item.title
-        description=item.descriptions.index
-        href=item.page
-        cta='skill' %}
-    {% endif %}
+    {% include card-download.html
+      title=item.title
+      description=item.description
+      href=item.asset
+      cta='direct'
+      download=true %}
   {% endfor %}
 </div>
+{% include skills-listing.html variant='download' cta='skill' %}

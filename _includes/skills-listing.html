@@ -1,0 +1,8 @@
+{% assign detail_pages = site.data.skill_pages.detail_pages | join: ',' %}
+<div class="skills-listing"
+  data-detail-base="{{ '/downloads/' | relative_url }}"
+  data-detail-pages="{{ detail_pages }}"
+  data-variant="{{ include.variant | default: 'link' }}"
+  {% if include.cta %}data-cta="{{ site.data.ctas[include.cta] }}"{% endif %}
+  {% if include.more_local %}data-more-local="{{ include.more_local }}"{% endif %}
+  {% if include.more_remote %}data-more-remote="{{ include.more_remote }}"{% endif %}></div>

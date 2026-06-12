@@ -13,14 +13,12 @@ permalink: /downloads/templates.html
 
   <div class="card-grid card-grid-1">
     {% for item in site.data.downloads.items %}
-      {% if item.kind == 'template' %}
-        <a class="card card-link" href="{{ item.page | relative_url }}">
-          <span class="card-kicker">{{ item.kicker }}</span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description_detail }}</p>
-          <span class="card-more">{{ item.link_label }}</span>
-        </a>
-      {% endif %}
+      <a class="card card-link" href="{{ item.page | relative_url }}">
+        <span class="card-kicker">{{ item.kicker }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description_detail }}</p>
+        <span class="card-more">{{ item.link_label }}</span>
+      </a>
     {% endfor %}
   </div>
 

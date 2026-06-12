@@ -18,9 +18,10 @@ defaults:
     values:
       layout: post
 
-# Neue Download-Seiten:
-# - Checklisten/Templates: layout download-preview + download_id (siehe _data/downloads.yml)
-# - Skills: layout skill + download_id + Artikel-Inhalt in <article class="prose">
+# Neue Inhalte:
+# - Skills auflisten: marketplace.json im agent-skills-Repo (automatisch via skills-listing.js)
+# - Skill-Detailseite im Hub: layout skill + download_id + Eintrag in _data/skill-pages.yml
+# - Checklisten/Templates: layout download-preview + download_id in _data/downloads.yml
 
 plugins:
   - jekyll-feed
