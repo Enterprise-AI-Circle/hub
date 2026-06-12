@@ -187,8 +187,8 @@ Der Baustein ersetzt weder eine professionelle Sicherheitsprüfung durch Experte
 
 ## Weiterführende Materialien
 
-- [**Credential Brokering für AI Agents.**]({{ 'blog/wie-man-secrets-sicher-mit-ai-coding-agents-teilt.html' | relative_url }}) Wie Anthropic, Vercel, Cloudflare und Infisical das Problem lösen, dass der Assistent das echte Passwort nie zu sehen bekommen soll. Siehe Begleitartikel "Wie man Secrets sicher mit AI Coding Agents teilt".
-- [**Pre-Commit-Scanning mit keyhog.**]({{ 'blog/pre-commit-scanning-mit-keyhog.html' | relative_url }}) Einrichtungsanleitung im Begleitartikel "Pre-Commit-Scanning mit keyhog".
+- [Credential Brokering für AI Agents.]({{ 'blog/wie-man-secrets-sicher-mit-ai-coding-agents-teilt.html' | relative_url }}) Wie Anthropic, Vercel, Cloudflare und Infisical das Problem lösen, dass der Assistent das echte Passwort nie zu sehen bekommen soll. Siehe Begleitartikel "Wie man Secrets sicher mit AI Coding Agents teilt".
+- [Pre-Commit-Scanning mit keyhog.]({{ 'blog/pre-commit-scanning-mit-keyhog.html' | relative_url }}) Einrichtungsanleitung im Begleitartikel "Pre-Commit-Scanning mit keyhog".
 
 ## Quellen
 
