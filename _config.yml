@@ -1,8 +1,8 @@
 title: XALT Docs
 description: Dokumentation & Ressourcen
 lang: de
-url: "https://enterprise-ai-circle.github.io"
-baseurl: "/hub"
+url: "https://hub.xalt.community"
+baseurl: ""
 
 markdown: kramdown
 kramdown:

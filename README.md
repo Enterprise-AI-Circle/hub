@@ -4,7 +4,7 @@ Der **Hub** ist das öffentliche Schaufenster des [Enterprise AI Circle](https:/
 
 Hier liegen der **Blog** und die **Goodie Drops** rund um den produktiven, sicheren Einsatz von AI Coding Agents (OpenClaw, Claude Code, Cursor & Co.) in Unternehmen.
 
-**Live:** <https://enterprise-ai-circle.github.io/hub/>
+**Live:** <https://hub.xalt.community/>
 
 ## Was hier liegt — und was nicht
 
@@ -22,7 +22,7 @@ Jekyll-Site, gebaut über GitHub Pages.
 ```bash
 bundle install
 bundle exec jekyll serve
-# → http://127.0.0.1:4000/hub/
+# → http://127.0.0.1:4000/
 ```
 
 ## Lizenz
