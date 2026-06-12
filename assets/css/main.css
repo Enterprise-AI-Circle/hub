@@ -861,3 +861,6 @@ h1, h2, h3 {
     border: 1px solid var(--line);
   }
 }
+
+/* Skills listing: loading/empty/error state */
+.muted { color: var(--text-muted, #6b7280); font-size: 0.95rem; }
