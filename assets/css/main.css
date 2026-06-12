@@ -600,7 +600,8 @@ h1, h2, h3 {
 .highlighter-rouge pre {
   margin: 0;
 }
-.highlighter-rouge .highlight {
+/* Nur Wrapper-div, nicht pre.highlight (Rouge setzt dieselbe Klasse auf <pre>) */
+.highlighter-rouge > .highlight {
   background: none;
 }
 .code-copy-btn {
