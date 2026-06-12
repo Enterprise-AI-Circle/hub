@@ -194,7 +194,7 @@ Die sechs Regeln geben die Richtung vor. Damit Prüfungen aber nicht zur Endlos-
 - Regelmäßige Quartalsprüfungen Ihrer aktiven Produkte.
 - Als zusätzliche Kontrolle bei der Durchsicht von KI-erstelltem Code.
 
-**Download:** [security-audit.zip](./security-audit.zip)
+**Download & Installation:** [Security Audit Skill](https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/security-audit)
 
 Entpacken in den entsprechenden Ordner Ihres KI-Assistenten, einmal `audit` eintippen, fertig. Eine Einrichtungs- und Anpassungsanleitung liegt dem Download bei.
 
