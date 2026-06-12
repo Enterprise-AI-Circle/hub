@@ -1,0 +1,6 @@
+{% assign license_name = page.license_name | default: site.data.skill_pages.defaults.license_name %}
+{% assign license_href = page.license_href | default: site.data.skill_pages.defaults.license_href %}
+<div class="skill-license">
+  <h2>Lizenz</h2>
+  <p><a href="{{ license_href | relative_url }}">{{ license_name }}</a></p>
+</div>

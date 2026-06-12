@@ -379,13 +379,6 @@ h1, h2, h3 {
   border-color: var(--accent-200);
   color: var(--primary-100);
 }
-.skill-prompt-hint {
-  font-size: var(--text-meta);
-  color: var(--text-200);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
 /* ── Sektionen ───────────────────────────────────────── */
 .section {
   margin-bottom: var(--gap-section);
@@ -712,14 +705,22 @@ pre.preview-content code {
   margin-bottom: 32px;
 }
 
-/* ── Skill Footer (CTA + Preview) ────────────────────── */
+/* ── Skill Footer (CTA + Preview + Lizenz) ───────────── */
 .skill-footer {
   margin-top: var(--gap-section);
   padding-top: var(--gap-header);
   border-top: 1px solid var(--line);
 }
-.skill-footer .skill-prompt {
+.skill-footer .skill-cta {
   margin-bottom: var(--gap-section);
+}
+.skill-footer .skill-cta .section-head {
+  margin-bottom: 16px;
+}
+.skill-footer .skill-cta .section-head h2 {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
 }
 .skill-footer .section-head {
   margin-bottom: 20px;
@@ -728,6 +729,21 @@ pre.preview-content code {
   margin: 0;
   font-size: var(--text-h2);
   font-weight: 700;
+}
+.skill-footer .preview-wrapper {
+  margin-bottom: var(--gap-section);
+}
+.skill-license {
+  padding-top: var(--gap-header);
+  border-top: 1px solid var(--line);
+}
+.skill-license h2 {
+  margin: 0 0 8px;
+  font-size: var(--text-h2);
+  font-weight: 700;
+}
+.skill-license p {
+  margin: 0;
 }
 
 /* ── Skill Two-Column Layout ─────────────────────────── */

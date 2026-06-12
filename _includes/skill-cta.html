@@ -1,6 +1,11 @@
 {% assign skill_name = page.title | replace: ' Skill', '' | replace: '-Skill', '' | replace: ' ', '-' %}
-<div class="skill-prompt">
-  <span class="skill-prompt-hint">Copy-paste-Befehl für deinen Agenten</span>
-  <code>Installiere den {{ skill_name }}-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/{{ page.download_id }}</code>
-  <button type="button" class="copy-btn-inline" data-copy-skill-prompt>Copy</button>
+{% assign cta_heading = include.heading | default: site.data.skill_pages.defaults.cta_heading %}
+<div class="skill-cta">
+  <div class="section-head">
+    <h2>{{ cta_heading }}</h2>
+  </div>
+  <div class="skill-prompt">
+    <code>Installiere den {{ skill_name }}-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/{{ page.download_id }}</code>
+    <button type="button" class="copy-btn-inline" data-copy-skill-prompt>Copy</button>
+  </div>
 </div>

@@ -5,6 +5,9 @@ detail_pages:
   - security-audit
 
 defaults:
+  cta_heading: Copy-paste-Befehl für deinen Agenten
   preview_heading: SKILL.md Vorschau
   preview_title: SKILL.md
   strip_frontmatter: true
+  license_name: MIT
+  license_href: /LICENSE
