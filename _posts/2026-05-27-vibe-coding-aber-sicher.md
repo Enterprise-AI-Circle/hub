@@ -59,7 +59,7 @@ In der Praxis sieht das so aus: Ein Security-Skill prüft jedes Projekt automati
 Der entscheidende Vorteil: Skills machen Qualität wiederholbar. Nicht abhängig davon, wer gerade am Werk ist oder wie gut er sich an Ihre Wünsche erinnert. Sie sind Ihr Wissen – strukturiert, übertragbar, prüfbar.
 
 
-Die folgenden sechs Regeln habe ich nicht erfunden. Es sind seit Jahren bewährte Sicherheitsprinzipien, übersetzt in die neue Realität selbstständig arbeitender KI-Assistenten. Sie können sie umsetzen, egal wie technisch versiert Sie selbst sind.
+Die folgenden sechs Regeln haben wir nicht erfunden. Es sind seit Jahren bewährte Sicherheitsprinzipien, übersetzt in die neue Realität selbstständig arbeitender KI-Assistenten. Sie können sie umsetzen, egal wie technisch versiert Sie selbst sind.
 
 
 ## 1. Behandeln Sie KI-Ergebnisse grundsätzlich mit Misstrauen
