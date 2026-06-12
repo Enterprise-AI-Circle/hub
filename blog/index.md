@@ -15,7 +15,7 @@ permalink: /blog/
 <div class="card-grid card-grid-1">
   {% for post in site.posts %}
   <a class="card card-link card-blog" href="{{ post.url | relative_url }}">
-    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%-d. %B %Y' }}</time>
+    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{% include date-de.html date=post.date %}</time>
     <h3>{{ post.title }}</h3>
     {% if post.description %}<p>{{ post.description }}</p>{% endif %}
     <span class="card-more">Weiterlesen →</span>
