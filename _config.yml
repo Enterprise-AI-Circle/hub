@@ -20,7 +20,7 @@ defaults:
 
 # Neue Inhalte:
 # - Skills auflisten: marketplace.json im agent-skills-Repo (automatisch via skills-listing.js)
-# - Skill-Detailseite im Hub: layout skill + download_id + Eintrag in _data/skill-pages.yml
+# - Skill-Detailseite im Hub: layout skill + download_id + Eintrag in _data/skill_pages.yml
 # - Checklisten/Templates: layout download-preview + download_id in _data/downloads.yml
 
 plugins:

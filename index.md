@@ -54,7 +54,7 @@ home: true
     <h2>Downloads</h2>
     <p>Checklisten, Prompt-Templates und SKILL.md zum Mitnehmen.</p>
   </div>
-  <div class="card-grid card-grid-1">
+  <div class="card-grid card-grid-1" id="home-downloads-grid">
     {% for item in site.data.downloads.items %}
       {% include card-download.html
         title=item.title
@@ -63,5 +63,5 @@ home: true
         cta='preview' %}
     {% endfor %}
   </div>
-  {% include skills-listing.html variant='download' cta='skill' %}
+  {% include skills-listing.html variant='download' cta='skill' append_to='home-downloads-grid' %}
 </section>

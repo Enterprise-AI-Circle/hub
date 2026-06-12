@@ -3,6 +3,7 @@
   data-detail-base="{{ '/downloads/' | relative_url }}"
   data-detail-pages="{{ detail_pages }}"
   data-variant="{{ include.variant | default: 'link' }}"
+  {% if include.append_to %}data-append-to="{{ include.append_to }}"{% endif %}
   {% if include.cta %}data-cta="{{ site.data.ctas[include.cta] }}"{% endif %}
   {% if include.more_local %}data-more-local="{{ include.more_local }}"{% endif %}
   {% if include.more_remote %}data-more-remote="{{ include.more_remote }}"{% endif %}></div>

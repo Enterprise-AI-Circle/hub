@@ -87,19 +87,45 @@
     return card;
   }
 
+  function targetGrid(container) {
+    var appendToId = container.getAttribute("data-append-to");
+    if (appendToId) {
+      var grid = document.getElementById(appendToId);
+      if (grid) {
+        container.hidden = true;
+        return grid;
+      }
+    }
+    return null;
+  }
+
   function renderContainer(container, data) {
     var detailBase = container.getAttribute("data-detail-base") || "";
     var knownDetailPages = parseDetailPages(container);
     var variant = container.getAttribute("data-variant") || "link";
     var skills = (data && data.plugins) || [];
+    var grid = targetGrid(container);
 
     if (!skills.length) {
+      if (grid) {
+        container.hidden = true;
+        return;
+      }
+      container.hidden = false;
       container.innerHTML = "";
       container.appendChild(el("p", "muted", "Noch keine Skills veröffentlicht."));
       return;
     }
 
-    var grid = el("div", "card-grid card-grid-1");
+    if (!grid) {
+      grid = el("div", "card-grid card-grid-1");
+      container.innerHTML = "";
+      container.hidden = false;
+      container.appendChild(grid);
+    } else {
+      container.hidden = true;
+    }
+
     skills.forEach(function (skill) {
       var href = detailHref(skill, detailBase, knownDetailPages);
       var isLocal = knownDetailPages.indexOf(skill.name) > -1;
@@ -108,9 +134,6 @@
         : renderLinkCard(skill, href, isLocal, container);
       grid.appendChild(card);
     });
-
-    container.innerHTML = "";
-    container.appendChild(grid);
   }
 
   function fetchMarketplace() {
@@ -127,10 +150,18 @@
   }
 
   function showError(container) {
-    container.innerHTML =
+    var grid = targetGrid(container);
+    var message =
       '<p class="muted">Skills konnten nicht geladen werden. ' +
       'Direkt im <a href="https://github.com/Enterprise-AI-Circle/agent-skills" ' +
       'target="_blank" rel="noopener">agent-skills Repository</a> ansehen.</p>';
+    if (grid) {
+      container.hidden = true;
+      grid.insertAdjacentHTML("beforeend", message);
+      return;
+    }
+    container.hidden = false;
+    container.innerHTML = message;
   }
 
   function init() {
@@ -138,6 +169,11 @@
     if (!containers.length) return;
 
     containers.forEach(function (container) {
+      if (container.getAttribute("data-append-to")) {
+        container.hidden = true;
+        return;
+      }
+      container.hidden = false;
       container.innerHTML = '<p class="muted">Lade Skills …</p>';
     });
 

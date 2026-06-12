@@ -12,7 +12,7 @@ permalink: /downloads/
   <p class="subtitle">Alles zum Mitnehmen — Checklisten, Templates und Skills.</p>
 </header>
 
-<div class="card-grid card-grid-1">
+<div class="card-grid card-grid-1" id="downloads-grid">
   {% for item in site.data.downloads.items %}
     {% include card-download.html
       title=item.title
@@ -22,4 +22,4 @@ permalink: /downloads/
       download=true %}
   {% endfor %}
 </div>
-{% include skills-listing.html variant='download' cta='skill' %}
+{% include skills-listing.html variant='download' cta='skill' append_to='downloads-grid' %}
