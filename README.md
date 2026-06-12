@@ -1,77 +1,30 @@
-# Enterprise AI Circle — Agent Skills
+# Enterprise AI Circle — Hub
 
-Open-source skills for AI coding agents, published by the [Enterprise AI Circle](https://www.xalt.de/) and curated by [XALT Business Consulting](https://www.xalt.de/).
+Der **Hub** ist das öffentliche Schaufenster des [Enterprise AI Circle](https://www.xalt.de/) — kuratiert von [XALT Business Consulting](https://www.xalt.de/).
 
-These skills are designed for leaders and engineering teams who use AI coding agents (OpenClaw, Claude Code, Cursor, and compatible tools) in production environments and want practical safeguards without slowing the team down.
+Hier liegen der **Blog** und die **Goodie Drops** rund um den produktiven, sicheren Einsatz von AI Coding Agents (OpenClaw, Claude Code, Cursor & Co.) in Unternehmen.
 
-## Available Skills
+**Live:** <https://enterprise-ai-circle.github.io/hub/>
 
-### Security Audit
+## Was hier liegt — und was nicht
 
-Audits a codebase for typical vibe-coding vulnerabilities, leaked secrets, dependency CVEs, and mismatches between the privacy/security promises a project makes and what its code actually does.
+| | Repo | Inhalt |
+|---|---|---|
+| **Hub** (dieses Repo) | `Enterprise-AI-Circle/hub` | Blog, Goodie Drops, Downloads, Design — die Jekyll/GitHub-Pages-Site |
+| **Skills** | [`Enterprise-AI-Circle/agent-skills`](https://github.com/Enterprise-AI-Circle/agent-skills) | Die ausführbaren Agent Skills selbst |
 
-Works on your own repositories and on third-party code you cloned to extend with an AI agent.
+Die Trennung ist Absicht: Die Skills bleiben ein sauberes, klonbares Produkt; der Hub ist die Präsentationsschicht. Das Skills-Listing auf dem Hub liest die Skills **automatisch** aus der `marketplace.json` des `agent-skills`-Repos — kein doppeltes Pflegen.
 
-**Supported stacks:** Node/TypeScript, Python, Go, Rust, Ruby, PHP (auto-detected).
+## Lokale Entwicklung
 
-### Installation
-
-Kein ZIP, kein Copy-Paste: Der Skill lebt in diesem Repo, dein Agent zieht ihn direkt von hier.
-
-**Claude Code (als Plugin — empfohlen).** Dieses Repo ist ein Plugin-Marketplace:
-
-```
-/plugin marketplace add Enterprise-AI-Circle/agent-skills
-/plugin install security-audit@agent-skills
-```
-
-Danach startest du einen Audit mit `/security-audit` oder fragst einfach: "Führe einen Security-Audit durch."
-
-**Andere Agenten (Codex, OpenClaw, Cursor & Co.).** Gib deinem Agenten den Direkt-Link, er lädt den Skill direkt aus dem Repo:
-
-> "Installiere den Security-Audit-Skill von hier: https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/agent-skills/security-audit"
-
-Oder leg den Ordner manuell ab:
-- **OpenClaw:** `~/.openclaw/workspace/skills/security-audit/`
-- **Claude Code (ohne Plugin):** `~/.claude/skills/security-audit/` (oder projektlokal `.claude/skills/security-audit/`)
-- **Cursor:** Inhalt der `SKILL.md` in einen Custom Instructions Block einfügen
-
-## Blog
-
-### [Big T — Token-Effizienz im Vibe Coding](https://enterprise-ai-circle.github.io/hub/blog/token-effizienz.html)
-
-Wie ihr Coding Agents wirtschaftlich einsetzt — ohne dass die Rechnung explodiert. 5 Quick Wins.
-
-### [Anti-AI-Slop — Personalisiert eure Agenten](https://enterprise-ai-circle.github.io/hub/blog/personalization.html)
-
-Hört auf, generische KI-Texte zu veröffentlichen. Gebt eurer KI eure Stimme.
-
-## Kontext
-
-Diese Skills werden im Rahmen der [Enterprise AI Circle](https://www.xalt.de/) Goodie Drops veröffentlicht — praktische Materialien für Unternehmen, die KI in ihren Organisationen einführen. Die begleitenden Artikel erscheinen derzeit auf Deutsch auf [xalt.de](https://www.xalt.de/); die Skills selbst sind auf Englisch, weil Englisch die Arbeitssprache von AI Coding Agents und moderner Softwareentwicklung ist.
-
-## Contributing
-
-Issues und Pull Requests willkommen. Bitte öffnet zuerst ein Issue, wenn ihr einen neuen Skill vorschlagen wollt, damit wir Scope und Richtung besprechen können.
-
-## License
-
-[MIT](./LICENSE) — diese Skills dürfen in kommerziellen und privaten Projekten ohne Einschränkungen verwendet werden.
-
----
-
-## Docs Site (GitHub Pages)
-
-Dieses Repo enthält eine Jekyll-basierte Dokumentationssite, die mit GitHub Pages gebaut wird.
-
-### Lokale Entwicklung
+Jekyll-Site, gebaut über GitHub Pages.
 
 ```bash
 bundle install
 bundle exec jekyll serve
-# → http://127.0.0.1:4000
+# → http://127.0.0.1:4000/hub/
 ```
 
-### Deployment
+## Lizenz
 
-Die Site baut und deployt automatisch auf GitHub Pages bei jedem Push auf `main`, über den Workflow in `.github/workflows/pages.yml`.
+[MIT](./LICENSE)
