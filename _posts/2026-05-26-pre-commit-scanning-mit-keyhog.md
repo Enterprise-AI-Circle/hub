@@ -1,5 +1,5 @@
 ---
-title: Pre-Commit-Scanning mit keyhog: Der teuerste Anfängerfehler beim Vibe Coding lässt sich in 5 Minuten verhindern
+title: Pre-Commit-Scanning mit keyhog
 description: Wie ein kostenloses Open-Source-Tool euch davor schützt, API-Keys versehentlich öffentlich zu machen
 permalink: /blog/pre-commit-scanning-mit-keyhog.html
 ---
