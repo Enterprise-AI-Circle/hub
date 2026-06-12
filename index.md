@@ -5,8 +5,8 @@ home: true
 ---
 
 <header class="page-header">
-  <p class="eyebrow">Enterprise AI Circle</p>
-  <h1>Agent Skills.<br><em>Praktisch. Sicher. Persönlich.</em></h1>
+  <p class="eyebrow">Knowledge Hub</p>
+  <h1>XALT AI Circle.<br><em>Praktische Tipps, Goodies und Tricks für's Vibe Coden.</em></h1>
   <p class="subtitle">Open-Source Skills für AI Coding Agents — kuratiert von XALT Business Consulting. Für Führungskräfte und Engineering-Teams, die KI in Produktion einsetzen.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Blog lesen</a>
