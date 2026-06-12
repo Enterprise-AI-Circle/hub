@@ -1,7 +1,24 @@
-- title: Token-Effizienz Checkliste
-  file: token-effizienz-checkliste.md
-  description: 5 Quick Wins für Token-Effizienz im Vibe Coding.
+# Templates und Checklisten (lokal im Hub-Repo).
+# Skills: Single Source of Truth = marketplace.json im agent-skills-Repo.
+items:
+  - id: token-effizienz
+    title: Token-Effizienz Checkliste
+    kicker: Effizienz
+    link_label: Zur Checkliste →
+    description: "5 Quick Wins für Token-Effizienz im Vibe Coding."
+    description_detail: "5 Quick Wins für Token-Effizienz im Vibe Coding — weniger Tokens, weniger Kosten, bessere Ergebnisse."
+    page: /downloads/token-effizienz.html
+    asset: /assets/downloads/token-effizienz-checkliste.md
+    asset_filename: token-effizienz-checkliste.md
+    preview_title: token-effizienz-checkliste.md
 
-- title: Personalization Prompt-Templates
-  file: personalization-prompt-templates.md
-  description: 5 fertige Prompt-Templates für Agent-Personalisierung.
+  - id: personalization
+    title: Personalization Prompt-Templates
+    kicker: Personalisierung
+    link_label: Zu den Templates →
+    description: "5 fertige Prompt-Templates für Agent-Personalisierung."
+    description_detail: "5 fertige Prompt-Templates für Agent-Personalisierung — passe deinen Agent an deine Bedürfnisse an."
+    page: /downloads/personalization.html
+    asset: /assets/downloads/personalization-prompt-templates.md
+    asset_filename: personalization-prompt-templates.md
+    preview_title: personalization-prompt-templates.md

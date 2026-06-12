@@ -1,0 +1,11 @@
+---
+layout: doc
+---
+{{ content }}
+{% assign preview_src = 'https://raw.githubusercontent.com/Enterprise-AI-Circle/agent-skills/main/agent-skills/' | append: page.download_id | append: '/SKILL.md' %}
+{% include skill-footer.html
+  preview_heading=site.data.skill_pages.defaults.preview_heading
+  preview_title=site.data.skill_pages.defaults.preview_title
+  preview_src=preview_src
+  preview_id=page.preview_id
+  strip_frontmatter=site.data.skill_pages.defaults.strip_frontmatter %}

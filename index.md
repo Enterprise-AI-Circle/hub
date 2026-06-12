@@ -17,17 +17,9 @@ home: true
 <section class="section">
   <div class="section-head">
     <h2>Skills</h2>
-    <p>Jeder Skill ist eine SKILL.md, die jeder compatible AI Coding Agent laden kann. Einfach den Link zu dieser Seite in den Agenten kopieren und sagen: "Installiere den Security-Audit-Skill."</p>
+    <p>Jeder Skill ist eine SKILL.md, die jeder compatible AI Coding Agent laden kann. Einfach den Link zu dieser Seite in den Agenten kopieren und sagen: „Installiere den Security-Audit-Skill.“</p>
   </div>
-  <div class="card-grid card-grid-1">
-    <div class="card card-download">
-      <div>
-        <h3>Security Audit</h3>
-        <p>Prüft Codebases auf Vibe-Coding-Schwachstellen, geleakte Secrets, Dependency-CVEs und mismatches zwischen Privacy-Versprechen und Code.</p>
-      </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & herunterladen</a>
-    </div>
-  </div>
+  {% include skills-listing.html variant='download' cta='skill' %}
 </section>
 
 <section class="section">
@@ -63,26 +55,13 @@ home: true
     <p>Checklisten, Prompt-Templates und SKILL.md zum Mitnehmen.</p>
   </div>
   <div class="card-grid card-grid-1">
-    <div class="card card-download">
-      <div>
-        <h3>Token-Effizienz Checkliste</h3>
-        <p>5 Quick Wins für Token-Effizienz im Vibe Coding.</p>
-      </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/token-effizienz.html' | relative_url }}">Ansehen & herunterladen</a>
-    </div>
-    <div class="card card-download">
-      <div>
-        <h3>Personalization Prompt-Templates</h3>
-        <p>5 fertige Prompt-Templates für Agent-Personalisierung.</p>
-      </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/personalization.html' | relative_url }}">Ansehen & herunterladen</a>
-    </div>
-    <div class="card card-download">
-      <div>
-        <h3>Security Audit Skill</h3>
-        <p>Die vollständige Skill-Definition. In den Agenten kopieren und loslegen.</p>
-      </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & herunterladen</a>
-    </div>
+    {% for item in site.data.downloads.items %}
+      {% include card-download.html
+        title=item.title
+        description=item.description
+        href=item.page
+        cta='preview' %}
+    {% endfor %}
   </div>
+  {% include skills-listing.html variant='download' cta='skill' %}
 </section>

@@ -1,0 +1,11 @@
+---
+layout: doc
+---
+{% assign item = site.data.downloads.items | where: "id", page.download_id | first %}
+{% include preview-panel.html
+  title=item.preview_title
+  src=item.asset
+  id=page.preview_id %}
+{% include download-actions.html
+  href=item.asset
+  filename=item.asset_filename %}

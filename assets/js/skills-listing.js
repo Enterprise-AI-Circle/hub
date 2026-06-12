@@ -1,21 +1,20 @@
-/* ── Automated Skills Listing ───────────────────────────────────
- * Fetches the live marketplace.json from the agent-skills repo and
- * renders skill cards. Single source of truth = the skills repo, so
- * dropping a new skill there auto-updates this listing (no rebuild).
+/* ── Skills Listing (marketplace.json = single source of truth) ──
+ * Fetches live marketplace.json from agent-skills and renders cards
+ * wherever .skills-listing containers exist on the page.
  *
- * Usage in a page:
- *   <div id="skills-listing" data-detail-base="downloads/"></div>
- *   <script src="{{ '/assets/js/skills-listing.js' | relative_url }}" defer></script>
+ * Variants (data-variant):
+ *   link     — card-link (skills overview page)
+ *   download — card-download with CTA button (home, downloads index)
  * ──────────────────────────────────────────────────────────────── */
 (function () {
   "use strict";
 
-  // Raw marketplace.json from the skills repo (always current).
   var MARKETPLACE_URL =
     "https://raw.githubusercontent.com/Enterprise-AI-Circle/agent-skills/main/.claude-plugin/marketplace.json";
-  // Repo tree base for "view on GitHub" links.
   var REPO_TREE_BASE =
     "https://github.com/Enterprise-AI-Circle/agent-skills/tree/main/";
+
+  var marketplaceCache = null;
 
   function el(tag, cls, html) {
     var e = document.createElement(tag);
@@ -32,27 +31,70 @@
       .replace(/"/g, "&quot;");
   }
 
-  // Map a skill name to its local detail page if one exists, else the GitHub source.
+  function formatTitle(name) {
+    return name
+      .replace(/[-_]/g, " ")
+      .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
   function detailHref(skill, detailBase, knownDetailPages) {
     var name = skill.name;
     if (knownDetailPages.indexOf(name) > -1) {
       return detailBase + name + ".html";
     }
-    // Fallback: link to the skill source folder on GitHub.
     var src = (skill.source || "./" + name).replace(/^\.\//, "");
     return REPO_TREE_BASE + src;
   }
 
-  function renderCards(container, data) {
-    var detailBase = container.getAttribute("data-detail-base") || "";
-    // Pages that have a hand-written detail page in the hub (optional override).
-    var knownDetailPages = (container.getAttribute("data-detail-pages") || "")
+  function parseDetailPages(container) {
+    return (container.getAttribute("data-detail-pages") || "")
       .split(",")
       .map(function (s) { return s.trim(); })
       .filter(Boolean);
+  }
 
+  function renderLinkCard(skill, href, isLocal, container) {
+    var moreLocal = container.getAttribute("data-more-local") || "Zum Skill →";
+    var moreRemote = container.getAttribute("data-more-remote") || "Auf GitHub ansehen →";
+    var card = el("a", "card card-link");
+    card.setAttribute("href", href);
+    if (!isLocal) {
+      card.setAttribute("target", "_blank");
+      card.setAttribute("rel", "noopener");
+    }
+    var version = skill.version
+      ? '<span class="card-kicker">v' + escapeHtml(skill.version) + "</span>"
+      : '<span class="card-kicker">Skill</span>';
+    card.innerHTML =
+      version +
+      "<h3>" + escapeHtml(formatTitle(skill.name)) + "</h3>" +
+      "<p>" + escapeHtml(skill.description || "") + "</p>" +
+      '<span class="card-more">' + (isLocal ? moreLocal : moreRemote) + "</span>";
+    return card;
+  }
+
+  function renderDownloadCard(skill, href, container) {
+    var cta = container.getAttribute("data-cta") || "Ansehen & installieren";
+    var card = el("div", "card card-download");
+    card.innerHTML =
+      "<div>" +
+        "<h3>" + escapeHtml(formatTitle(skill.name)) + "</h3>" +
+        "<p>" + escapeHtml(skill.description || "") + "</p>" +
+      "</div>" +
+      '<a class="btn btn-primary btn-sm" href="' + escapeHtml(href) + '">' +
+        escapeHtml(cta) +
+      "</a>";
+    return card;
+  }
+
+  function renderContainer(container, data) {
+    var detailBase = container.getAttribute("data-detail-base") || "";
+    var knownDetailPages = parseDetailPages(container);
+    var variant = container.getAttribute("data-variant") || "link";
     var skills = (data && data.plugins) || [];
+
     if (!skills.length) {
+      container.innerHTML = "";
       container.appendChild(el("p", "muted", "Noch keine Skills veröffentlicht."));
       return;
     }
@@ -61,25 +103,9 @@
     skills.forEach(function (skill) {
       var href = detailHref(skill, detailBase, knownDetailPages);
       var isLocal = knownDetailPages.indexOf(skill.name) > -1;
-
-      var card = el("a", "card card-link");
-      card.setAttribute("href", href);
-      if (!isLocal) {
-        card.setAttribute("target", "_blank");
-        card.setAttribute("rel", "noopener");
-      }
-
-      var title = skill.name
-        .replace(/[-_]/g, " ")
-        .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
-
-      var version = skill.version ? '<span class="card-kicker">v' + escapeHtml(skill.version) + "</span>" : "";
-      card.innerHTML =
-        version +
-        "<h3>" + escapeHtml(title) + "</h3>" +
-        "<p>" + escapeHtml(skill.description || "") + "</p>" +
-        '<span class="card-more">' + (isLocal ? "Zum Skill →" : "Auf GitHub ansehen →") + "</span>";
-
+      var card = variant === "download"
+        ? renderDownloadCard(skill, href, container)
+        : renderLinkCard(skill, href, isLocal, container);
       grid.appendChild(card);
     });
 
@@ -87,30 +113,63 @@
     container.appendChild(grid);
   }
 
-  function init() {
-    var container = document.getElementById("skills-listing");
-    if (!container) return;
-
-    container.innerHTML = '<p class="muted">Lade Skills …</p>';
-
-    fetch(MARKETPLACE_URL, { cache: "no-store" })
+  function fetchMarketplace() {
+    if (marketplaceCache) return Promise.resolve(marketplaceCache);
+    return fetch(MARKETPLACE_URL, { cache: "no-store" })
       .then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();
       })
-      .then(function (data) { renderCards(container, data); })
-      .catch(function () {
-        // Graceful fallback: static link to the repo so the page is never empty.
-        container.innerHTML =
-          '<p class="muted">Skills konnten nicht geladen werden. ' +
-          'Direkt im <a href="https://github.com/Enterprise-AI-Circle/agent-skills" ' +
-          'target="_blank" rel="noopener">agent-skills Repository</a> ansehen.</p>';
+      .then(function (data) {
+        marketplaceCache = data;
+        return data;
       });
   }
 
+  function showError(container) {
+    container.innerHTML =
+      '<p class="muted">Skills konnten nicht geladen werden. ' +
+      'Direkt im <a href="https://github.com/Enterprise-AI-Circle/agent-skills" ' +
+      'target="_blank" rel="noopener">agent-skills Repository</a> ansehen.</p>';
+  }
+
+  function init() {
+    var containers = document.querySelectorAll(".skills-listing");
+    if (!containers.length) return;
+
+    containers.forEach(function (container) {
+      container.innerHTML = '<p class="muted">Lade Skills …</p>';
+    });
+
+    fetchMarketplace()
+      .then(function (data) {
+        containers.forEach(function (container) {
+          renderContainer(container, data);
+        });
+      })
+      .catch(function () {
+        containers.forEach(showError);
+      });
+  }
+
+  // Backwards compat: legacy #skills-listing id
+  function migrateLegacyContainer() {
+    var legacy = document.getElementById("skills-listing");
+    if (legacy && !legacy.classList.contains("skills-listing")) {
+      legacy.classList.add("skills-listing");
+      if (!legacy.getAttribute("data-variant")) {
+        legacy.setAttribute("data-variant", "link");
+      }
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", function () {
+      migrateLegacyContainer();
+      init();
+    });
   } else {
+    migrateLegacyContainer();
     init();
   }
 })();

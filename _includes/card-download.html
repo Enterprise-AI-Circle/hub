@@ -1,0 +1,9 @@
+{% assign cta_key = include.cta | default: 'preview' %}
+{% assign cta_label = site.data.ctas[cta_key] %}
+<div class="card card-download">
+  <div>
+    <h3>{{ include.title }}</h3>
+    <p>{{ include.description }}</p>
+  </div>
+  <a class="btn btn-primary btn-sm" href="{{ include.href | relative_url }}"{% if include.download %} download{% endif %}>{{ cta_label }}</a>
+</div>
