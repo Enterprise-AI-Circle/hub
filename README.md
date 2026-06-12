@@ -25,16 +25,6 @@ bundle exec jekyll serve
 # → http://127.0.0.1:4000/hub/
 ```
 
-## Deployment
-
-Automatisch auf GitHub Pages bei jedem Push auf `main`, über `.github/workflows/pages.yml` (Source: GitHub Actions).
-
-## Neuen Goodie Drop veröffentlichen
-
-1. **Skill** (falls vorhanden) → ins [`agent-skills`](https://github.com/Enterprise-AI-Circle/agent-skills)-Repo + Eintrag in dessen `marketplace.json`. Das Hub-Listing aktualisiert sich automatisch.
-2. **Blog-Artikel** → neue Datei in `_posts/` (Format `JJJJ-MM-TT-titel.md`).
-3. **Optional**: Download-Asset in `assets/downloads/` + Eintrag in `_data/downloads.yml`.
-
 ## Lizenz
 
 [MIT](./LICENSE)
