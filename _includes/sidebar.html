@@ -39,7 +39,7 @@
           {% endif %}
           <a class="nav-link{% if is_active %} active{% endif %}" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         {% endfor %}
-        <a class="nav-link" href="{{ section.all_posts_url | relative_url }}" style="color: var(--accent-200); font-size: var(--text-meta);">Alle Beiträge →</a>
+        <a class="nav-link nav-link--accent" href="{{ section.all_posts_url | relative_url }}">Alle Beiträge →</a>
       {% else %}
         {% for link in section.links %}
         {% if link.title and link.links.size > 1 %}

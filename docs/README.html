@@ -6,13 +6,7 @@ eyebrow: About
 permalink: /docs/README.html
 ---
 
-<header class="page-header">
-  <p class="eyebrow">About</p>
-  <h1>Enterprise AI Circle — Agent Skills</h1>
-  <p class="subtitle">Open-source skills für AI Coding Agents — kuratiert von XALT Business Consulting.</p>
-</header>
-
-<div class="prose">
+<div class="prose" hidden aria-hidden="true">
 <textarea id="readme-content" style="display:none;"># Enterprise AI Circle — Agent Skills
 
 Open-source skills for AI coding agents, published by the [Enterprise AI Circle](https://www.xalt.de/) and curated by [XALT Business Consulting](https://www.xalt.de/).
@@ -96,7 +90,7 @@ Die Site baut und deployt automatisch auf GitHub Pages bei jedem Push auf `main`
 <div class="preview-wrapper">
   <div class="preview-toolbar">
     <span class="preview-title">README.md</span>
-    <button class="btn btn-sm copy-btn" onclick="copyContent('readme-content')">📋 Copy</button>
+    <button type="button" class="copy-btn" onclick="copyContent('readme-content', this)">Copy</button>
   </div>
   <pre class="preview-content"><code id="readme-display"></code></pre>
 </div>
@@ -109,16 +103,4 @@ document.addEventListener('DOMContentLoaded', () => {
     display.textContent = textarea.value;
   }
 });
-
-function copyContent(id) {
-  const el = document.getElementById(id);
-  const text = el.value || el.textContent || '';
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.copy-btn');
-    if (btn) {
-      btn.textContent = '✅ Kopiert!';
-      setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
-    }
-  });
-}
 </script>

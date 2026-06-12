@@ -25,7 +25,7 @@ home: true
         <h3>Security Audit</h3>
         <p>Prüft Codebases auf Vibe-Coding-Schwachstellen, geleakte Secrets, Dependency-CVEs und mismatches zwischen Privacy-Versprechen und Code.</p>
       </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & herunterladen</a>
+      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & installieren</a>
     </div>
   </div>
 </section>
@@ -82,7 +82,7 @@ home: true
         <h3>Security Audit Skill</h3>
         <p>Die vollständige Skill-Definition. In den Agenten kopieren und loslegen.</p>
       </div>
-      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & herunterladen</a>
+      <a class="btn btn-primary btn-sm" href="{{ '/downloads/security-audit.html' | relative_url }}">Ansehen & installieren</a>
     </div>
   </div>
 </section>

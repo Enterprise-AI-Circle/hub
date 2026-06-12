@@ -76,16 +76,20 @@ skill_path: security-audit
   <p><a href="../LICENSE">MIT</a></p>
 </article>
 
-{% include skill-cta.html %}
+<section class="skill-footer section">
+  {% include skill-cta.html %}
 
-<h2>Skill.md preview</h2>
-<div class="preview-wrapper">
-  <div class="preview-toolbar">
-    <span class="preview-title">SKILL.md</span>
-    <button class="copy-btn" onclick="copyContent('security-content')">Copy</button>
+  <div class="section-head">
+    <h2>SKILL.md Vorschau</h2>
   </div>
-  <div class="preview-content prose" id="security-content"></div>
-</div>
+  <div class="preview-wrapper">
+    <div class="preview-toolbar">
+      <span class="preview-title">SKILL.md</span>
+      <button type="button" class="copy-btn" onclick="copyContent('security-content', this)">Copy</button>
+    </div>
+    <div class="preview-content prose" id="security-content"></div>
+  </div>
+</section>
 
 <script>document.addEventListener('DOMContentLoaded', () => {
   fetch('https://raw.githubusercontent.com/Enterprise-AI-Circle/agent-skills/main/agent-skills/security-audit/SKILL.md')

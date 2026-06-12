@@ -18,9 +18,9 @@ input?.addEventListener('input', () => {
   const q = input.value.trim().toLowerCase();
   document.querySelectorAll('.nav-group').forEach((sec) => {
     let any = false;
-    sec.querySelectorAll('.nav-link').forEach((a) => {
+    sec.querySelectorAll('.nav-link, .nav-sublabel').forEach((a) => {
       const m = !q || a.textContent.toLowerCase().includes(q);
-      a.style.display = m ? 'block' : 'none';
+      a.style.display = m ? '' : 'none';
       if (m) any = true;
     });
     sec.style.display = any ? 'block' : 'none';
@@ -46,15 +46,17 @@ document.addEventListener('click', (e) => {
     .catch(() => { display.textContent = 'Fehler beim Laden.'; });
 });
 
-function copyContent(id) {
+function copyContent(id, btn) {
   const el = document.getElementById(id);
   if (!el) return;
-  const text = el.textContent || '';
+  const text = el.value || el.textContent || '';
+  const button = btn || document.querySelector('.copy-btn');
   navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.copy-btn');
-    if (btn) {
-      btn.textContent = '✓ Kopiert!';
-      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+    if (button) {
+      const original = button.dataset.label || button.textContent;
+      button.dataset.label = original;
+      button.textContent = '✓ Kopiert!';
+      setTimeout(() => { button.textContent = original; }, 2000);
     }
   });
 }
@@ -62,11 +64,13 @@ function copyContent(id) {
 function copySkillPrompt() {
   const code = document.querySelector('.skill-prompt code');
   if (!code) return;
+  const btn = document.querySelector('.copy-btn-inline');
   navigator.clipboard.writeText(code.textContent).then(() => {
-    const btn = document.querySelector('.copy-btn-inline');
     if (btn) {
+      const original = btn.dataset.label || btn.textContent;
+      btn.dataset.label = original;
       btn.textContent = '✓ Kopiert!';
-      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      setTimeout(() => { btn.textContent = original; }, 2000);
     }
   });
 }
@@ -78,8 +82,9 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   const url = btn.href;
   const filename = btn.dataset.filename || 'download.md';
+  const original = btn.dataset.label || btn.textContent;
 
-  btn.textContent = '⏳ Lädt...';
+  btn.textContent = 'Lädt…';
   fetch(url)
     .then(r => r.blob())
     .then(blob => {
@@ -90,23 +95,25 @@ document.addEventListener('click', (e) => {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(a.href);
-      btn.textContent = '✅ Download gestartet!';
-      setTimeout(() => { btn.textContent = 'Herunterladen'; }, 2000);
+      btn.textContent = 'Download gestartet';
+      setTimeout(() => { btn.textContent = original; }, 2000);
     })
     .catch(() => {
-      btn.textContent = '❌ Fehler';
-      setTimeout(() => { btn.textContent = 'Herunterladen'; }, 2000);
+      btn.textContent = 'Fehler';
+      setTimeout(() => { btn.textContent = original; }, 2000);
     });
 });
 
-/* ── Site-wide code block copy buttons ───────────────────── */
+/* ── Site-wide code block copy buttons ───────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.prose pre').forEach(pre => {
+  document.querySelectorAll('.prose pre, .highlighter-rouge pre').forEach(pre => {
     if (pre.querySelector('.code-copy-btn')) return;
+    pre.style.position = 'relative';
     const btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = 'code-copy-btn';
     btn.textContent = 'Copy';
-    btn.setAttribute('aria-label', 'Copy code');
+    btn.setAttribute('aria-label', 'Code kopieren');
     btn.addEventListener('click', () => {
       const code = pre.querySelector('code');
       if (!code) return;
@@ -115,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
       });
     });
-    pre.style.position = 'relative';
     pre.appendChild(btn);
   });
 });
