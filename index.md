@@ -9,7 +9,7 @@ home: true
   <h1>Agent Skills.<br><em>Praktisch. Sicher. Persönlich.</em></h1>
   <p class="subtitle">Open-Source Skills für AI Coding Agents — kuratiert von XALT Business Consulting. Für Führungskräfte und Engineering-Teams, die KI in Produktion einsetzen.</p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="{{ '/blog/token-effizienz.html' | relative_url }}">Blog lesen</a>
+    <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Blog lesen</a>
     <a class="btn btn-ghost" href="{{ '/downloads/' | relative_url }}">Downloads</a>
   </div>
 </header>
