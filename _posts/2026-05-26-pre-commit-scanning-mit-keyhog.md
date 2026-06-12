@@ -4,8 +4,6 @@ description: Wie ein kostenloses Open-Source-Tool euch davor schützt, API-Keys 
 permalink: /blog/pre-commit-scanning-mit-keyhog.html
 ---
 
-# Pre-Commit-Scanning mit keyhog
-
 Stellt euch vor: Jemand prototypisiert mit Claude Code oder Cursor eine kleine Anwendung. Der Agent schlägt vor, die API-Keys für den Test direkt in den Code zu schreiben. "Geht schneller." Der Prototyp wird committed, das Repo geht auf GitHub, und in wenigen Minuten sind die Credentials kompromittiert.
 
 Das passiert nicht hypothetisch. Das passiert täglich. Der [GitGuardian State of Secrets Sprawl 2026](https://www.gitguardian.com/state-of-secrets-sprawl-report-2026) hat 29 Millionen neue hardcodierte Secrets allein in 2025 gezählt, und AI-co-authored Commits leaken doppelt so häufig wie Human-only Commits.
