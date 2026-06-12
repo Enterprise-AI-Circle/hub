@@ -1,6 +1,6 @@
 ---
 title: Vibe Coding – aber sicher
-description: Sechs Regeln für Führungskräfte, die KI in Produktion einsetzen.
+description: Wer schneller baut, macht schneller Fehler. Hier sind die sechs Regeln, die euer Team und eure Daten schützen.
 permalink: /blog/vibe-coding-aber-sicher.html
 ---
 
