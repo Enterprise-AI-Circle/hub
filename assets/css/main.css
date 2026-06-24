@@ -102,19 +102,36 @@ a:hover { color: var(--primary-100); }
   text-transform: uppercase;
 }
 
-.github-link {
+.github-badge {
+  position: fixed;
+  top: 20px;
+  right: clamp(16px, 3vw, 28px);
+  z-index: 100;
   display: inline-flex;
   align-items: center;
-  margin: -12px 0 20px;
-  padding: 0 10px;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  font-family: var(--font-heading);
   font-size: var(--text-meta);
-  font-weight: 400;
-  color: var(--text-200);
+  font-weight: 600;
+  color: var(--text-100);
   text-decoration: none;
-  transition: color .15s;
+  transition: border-color .15s, color .15s, transform .15s, box-shadow .15s;
 }
-.github-link:hover {
-  color: var(--accent-200);
+.github-badge:hover {
+  color: var(--primary-100);
+  border-color: var(--primary-200);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(8, 19, 39, .1);
+}
+.github-badge__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .search { display: block; margin-bottom: 24px; }
@@ -942,6 +959,11 @@ pre.preview-content code {
   .nav-toggle {
     display: flex;
   }
+  .github-badge {
+    top: 12px;
+    right: 12px;
+    padding: 7px 12px;
+  }
   .main {
     padding-top: 56px;
   }
@@ -1041,7 +1063,8 @@ pre.preview-content code {
   .shell {
     display: block;
   }
-  .sidebar {
+  .sidebar,
+  .github-badge {
     display: none;
   }
   .main {
