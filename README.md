@@ -1,6 +1,6 @@
 # Enterprise AI Circle — Hub
 
-Der **Hub** ist das öffentliche Schaufenster des [Enterprise AI Circle](https://www.xalt.de/) — kuratiert von [XALT Business Consulting](https://www.xalt.de/).
+Der **Hub** ist das öffentliche Schaufenster des [XALT AI Circle](https://www.xalt.de/) — kuratiert von [XALT Business Consulting](https://www.xalt.de/).
 
 Hier liegen der **Blog** und die **Goodie Drops** rund um den produktiven, sicheren Einsatz von AI Coding Agents (OpenClaw, Claude Code, Cursor & Co.) in Unternehmen.
 
